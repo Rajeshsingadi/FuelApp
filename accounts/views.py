@@ -4,7 +4,7 @@ from django.template.loader import render_to_string
 
 from accounts.models import Account
 from . forms import RegistrationForm
-
+from django.contrib import messages
 
 
 def register(request):
@@ -19,6 +19,10 @@ def register(request):
 
             user = Account.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password)
             user.save()
+
+            messages.success(request, 'Registration Successful!')
+
+            return redirect('register' )
         
     else:
         form = RegistrationForm()

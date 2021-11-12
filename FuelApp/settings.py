@@ -124,8 +124,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [BASE_DIR/"static"]
+#STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [BASE_DIR  / 'static']
 
 
+
+#sending the messages add these lines from django messages documentation
+#https://docs.djangoproject.com/en/3.2/ref/contrib/messages/
+# from django.contrib.messages import constants as messages
+# MESSAGE_TAGS = {
+#     messages.INFO: '',
+#     50: 'critical',
+# }
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
