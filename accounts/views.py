@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
 from django.template.loader import render_to_string
+from django.contrib import messages, auth
 
 from accounts.models import Account
 from . forms import RegistrationForm
@@ -33,11 +34,25 @@ def register(request):
     return render(request, "accounts/register.html", context)
 
 def login(request):
+    if request.method == 'POST':
+        email=request.POST.get('email')
+        password=request.POST.get('password')
+
+        user  = auth.authenticate(email=email, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            # messages.success(request , 'You are now logged in!')
+            return redirect('success')
+        else:
+            messages.error(request, 'Invalid Login credentials')
+            return redirect('success')
+
     return render(request, "accounts/login.html")
 
 def logout(request):
     return
 
 def confirm_registration(request):
-    #return render(request, 'petrol/registration_success.html')
-    pass
+    return render(request, 'accounts/registration_success.html')
+    

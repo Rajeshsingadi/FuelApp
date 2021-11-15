@@ -29,7 +29,10 @@
             {% comment %} <input type="text" placeholder="Enter Username" name="username" id="username" required> {% endcomment %}
             {{form.username}}
 
+
             <label for="email"><b>Email</b></label>
+            <br>
+            {% comment %} {{form.email}} {% endcomment %}
             <input type="text" placeholder="Enter Email" name="email" id="email" required>
             
 
@@ -50,7 +53,7 @@
         </div>
         
         <div class="container signin">
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
+            <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
         </div>
     </form>
     
