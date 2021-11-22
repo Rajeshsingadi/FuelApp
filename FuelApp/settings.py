@@ -150,7 +150,7 @@ MESSAGE_TAGS = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER ='rajeshtest77@gmail.com'
-EMAIL_HOST_PASSWORD = 'Test9@90'
+EMAIL_HOST_PASSWORD = 'TypeyourpasswordHere'
 EMAIL_USE_TLS = True
 
 # custom user level login
