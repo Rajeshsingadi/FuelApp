@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block css_files %}
-    <link href="{% static 'css/register.css' %}" rel="stylesheet">
-{% endblock  %}
 
 {% block content %}
-    
-    
-    <center><h1>login Page</h1></center>
+        
     <form action="{% url 'register'%}" method="POST">
         {% csrf_token %}
 
         <div class="container">
-            {% include 'includes/alert.html' %}
+            {% include 'includes/alerts.html' %}
             <center><h1>Register</h1></center>
             <p>Please fill in this form to create an account.</p>
             <hr>
@@ -31,9 +26,8 @@
 
 
             <label for="email"><b>Email</b></label>
-            <br>
-            {% comment %} {{form.email}} {% endcomment %}
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+            {{form.email}}  
+            {% comment %} <input type="text" placeholder="Enter Email" id="email" required> {% endcomment %}
             
 
             <label for="psw"><b>Password</b></label>
